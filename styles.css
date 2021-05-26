@@ -1,0 +1,130 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  height: 100%;
+  width: 100%;
+}
+nav {
+  position: fixed;
+  height: 100px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  background: linear-gradient(
+    to right,
+    rgb(18, 194, 233),
+    rgb(196, 113, 237),
+    rgb(246, 79, 89)
+  );
+}
+nav .logo h1 {
+  color: #fff;
+  text-shadow: 2px 2px 3px #000;
+  transition: 0.5s;
+}
+nav .logo h1:hover {
+  transform: scale(1.3, 1.3);
+}
+nav .links a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 1000;
+  margin-left: 20px;
+  transition: 0.2s;
+}
+nav .links a:nth-child(even):hover {
+  border-top: 2px solid #fff;
+  color: #000;
+}
+nav .links a:nth-child(odd):hover {
+  color: #000;
+  border-bottom: 2px solid #fff;
+}
+nav .button {
+  height: 50px;
+  width: 150px;
+  background: rgb(196, 196, 196);
+  border: 2px outset rgb(230, 228, 228);
+}
+nav .button button {
+  height: 50px;
+  width: 150px;
+  border: 0;
+  color: #000;
+  font-weight: 1000;
+  outline: none;
+  clip-path: polygon(13% 14%, 100% 0, 100% 100%, 0 100%);
+  transition: 0.5s;
+}
+nav .button button:hover {
+  clip-path: polygon(0 0, 100% 0, 88% 89%, 0 100%);
+}
+#nav_toggle {
+  position: absolute;
+  top: -100px;
+}
+nav .icon_burger {
+  position: absolute;
+  right: 5%;
+  top: 50%;
+  display: none;
+  transform: translateY(-50%);
+}
+nav .icon_burger .line {
+  width: 30px;
+  height: 5px;
+  background-color: #fff;
+  margin: 5px;
+  border-radius: 3px;
+}
+@media screen and (max-width: 768px) {
+  nav .logo {
+    float: none;
+    width: auto;
+    justify-content: center;
+  }
+  nav .links {
+    float: none;
+    z-index: 9;
+    justify-content: space-evenly;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 100%;
+    display: flex;
+    flex-direction: column;
+    top: 100px;
+    width: auto;
+    height: auto;
+    overflow: hidden;
+    transition: all 1s ease-in-out;
+    background: linear-gradient(
+      rgb(18, 194, 223),
+      rgb(196, 113, 237),
+      rgb(246, 79, 89)
+    );
+  }
+  nav .links a {
+    margin: auto;
+  }
+  nav .icon_burger {
+    display: block;
+  }
+  nav :checked ~ .links {
+    bottom: 0;
+  }
+  nav :checked ~ .icon_burger .line:nth-child(1) {
+    transform: translateY(10px) rotate(225deg);
+  }
+  nav :checked ~ .icon_burger .line:nth-child(2) {
+    opacity: 0;
+  }
+  nav :checked ~ .icon_burger .line:nth-child(3) {
+    transform: translateY(-10px) rotate(-225deg);
+  }
+}
